@@ -1,16 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./header.css";
 
 const Header = () => {
   const [showModal, setshowModal] = useState(false);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("currentMode") ?? "dark"
+  );
+
+  useEffect(() => {
+    if (theme === "light") {
+      document.body.classList.remove("dark");
+      document.body.classList.add("light");
+    } else {
+      document.body.classList.remove("light");
+      document.body.classList.add("dark");
+    }
+  }, [theme]);
+
   return (
-    <header className="flex">
+    <header className="  flex">
       <button
         onClick={() => {
           setshowModal(true);
         }}
         className="menu icon-menu flex"
-      ></button>
+      >
+        {" "}
+      </button>
       <div />
 
       <nav>
@@ -18,11 +34,9 @@ const Header = () => {
           <li>
             <a href="">About</a>
           </li>
+
           <li>
-            <a href="">Articles</a>
-          </li>
-          <li>
-            <a href="">Project</a>
+            <a href="">Projects</a>
           </li>
           <li>
             <a href="">Speaking</a>
@@ -32,34 +46,52 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <button className="mode flex">
-        <span className="icon-moon-o"></span>
+
+      <button
+        onClick={() => {
+          // Send value to LS
+          localStorage.setItem(
+            "currentMode",
+            theme === "dark" ? "light" : "dark"
+          );
+
+          // get value from LS
+          setTheme(localStorage.getItem("currentMode"));
+        }}
+        className="mode flex"
+      >
+        {theme === "dark" ? (
+          <span className="icon-moon-o"> </span>
+        ) : (
+          <span className="icon-sun"> </span>
+        )}
       </button>
+
       {showModal && (
         <div className="fixed">
-          <ul className="modal">
+          <ul className="modal ">
             <li>
               <button
-                className="icon-clear"
+                className="icon-close"
                 onClick={() => {
                   setshowModal(false);
                 }}
               />
             </li>
             <li>
-              <a href=""></a>About
+              <a href="">About</a>
             </li>
             <li>
-              <a href=""></a>Articles
+              <a href="">Articles</a>
             </li>
             <li>
-              <a href=""></a>Project
+              <a href="">Projects</a>
             </li>
             <li>
-              <a href=""></a>Speaking
+              <a href="">Speaking</a>
             </li>
             <li>
-              <a href=""></a>Uses
+              <a href="">Uses</a>
             </li>
           </ul>
         </div>
@@ -67,4 +99,5 @@ const Header = () => {
     </header>
   );
 };
+
 export default Header;
