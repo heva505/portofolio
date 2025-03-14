@@ -22,7 +22,7 @@ const Main = () => {
   };
 
   return (
-    <main className="flex">
+    <main id="flex" className="flex">
       <section className="flex  left-section">
         <button
           onClick={() => {

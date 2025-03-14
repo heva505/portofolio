@@ -1,5 +1,5 @@
 import "./contact.css";
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm, ValidationError } from "@formspree/react";
 import Lottie from "lottie-react";
 import doneAnimation from "../../animation/done.json";
 import contactAnimation from "../../animation/mail.json";
@@ -8,14 +8,15 @@ const Contact = () => {
   const [state, handleSubmit] = useForm("mrbpgbpd");
 
   return (
-    <section className="contact-us">
+    <section id="contact" className="contact-us">
       <h1 className="title">
         <span className="icon-envelope"> </span>
-        Contact us
+        Contact Me
       </h1>
       <p className="sub-title">
-        Contact us for more information and Get notified when I publish
-        something new.
+        I'm always looking for new opportunities to challenge myself and
+        collaborate with innovative teams. <br /> Feel free to contact me via [email]
+        .
       </p>
 
       <div style={{ justifyContent: "space-between" }} className="flex">

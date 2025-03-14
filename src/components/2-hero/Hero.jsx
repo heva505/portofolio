@@ -8,14 +8,15 @@ const Hero = () => {
   const lottieRef = useRef();
 
   return (
-    <section className="hero flex">
+    <section id="hero" className="hero flex">
       <div className="left-section  ">
         <div className="parent-avatar flex">
           <motion.img
             initial={{ transform: "scale(0)" }}
             animate={{ transform: "scale(1.1)" }}
             transition={{ damping: 6, type: "spring", stiffness: 100 }}
-            src="./me.jpg"
+            src="./images/heva-1.jpg
+            "
             className="avatar"
             alt=""
           />
@@ -28,14 +29,18 @@ const Hero = () => {
           transition={{ duration: 2 }}
           className="title"
         >
-          hevaaaaaaaaaaaaaaaa
+        Every project is a new story.
         </motion.h1>
 
         <p className="sub-title">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis
-          neque accusantium tempore voluptas alias, expedita laborum quaerat
-          unde suscipit, ipsam iusto incidunt! Libero repellat sapiente aliquam
-          architecto aperiam molestiae ut?
+         I'm [HEVA], a web developer specializing in creating
+          modern interactive applications and websites in front-end and back-end
+          development. <br /> I'm currently working on mastering technologies like
+          [MySQL, Node.js, and Mongo DB].  <br />I love turning creative ideas
+          into reality by writing clean and efficient code, and I'm always keen
+          to develop my skills to keep up with the latest trends in the
+          programming world. <br />I have a great passion for solving technical
+          problems and improving user experiences.
         </p>
 
         <div className="all-icons flex">
